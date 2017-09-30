@@ -1,0 +1,25 @@
+$custom-theme-primary: mat-palette($mat-pink);
+$custom-theme-accent: mat-palette($mat-blue, A200, A100, A400);
+$custom-theme-warn: mat-palette($mat-red);
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+.sidenav {
+  background-color: lightgray !important;
+}
+.sidenav-list{
+    li{
+       a{
+           color:black !important;
+       } 
+    }
+    li:hover{
+        background-color: black;
+        a{
+           color:white !important;
+       } 
+    }
+}
+.page-header{  
+    background-color:darkblue;
+}
+
+@include angular-material-theme($custom-theme);

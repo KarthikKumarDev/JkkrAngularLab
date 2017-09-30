@@ -1,0 +1,57 @@
+<header class="page-header">
+   <h2>Skill Details</h2>
+</header>
+<form class="my-form" [formGroup]="skillForm" (ngSubmit)="onSkillSave()" >
+   <div class="card-container">
+      
+         <md-card class="my-card">
+            <md-card-header>
+               <md-card-title class="my-card-title">Skill Form</md-card-title>
+               <md-card-subtitle>Person Details</md-card-subtitle>
+            </md-card-header>
+            <md-card-content >
+               <md-form-field class="my-input" color="accent" >
+                  <input mdInput placeholder="Name" formControlName="name" required>
+               </md-form-field>
+               <md-form-field class="my-input" color="accent" >
+                  <input mdInput placeholder="Years Of Experience" type="number" formControlName="yearsOfExperience" required>
+               </md-form-field>
+               <md-select class="my-select-input" placeholder="Favorite Tech" name="tech" multiple="" color="accent" formControlName="favouriteTech" >
+                  <md-option *ngFor="let tech of techlist" [value]="tech.value">
+                  {{tech.viewValue}}
+                  </md-option>
+               </md-select>
+               <md-select class="my-select-input" placeholder="Current Tech" name="tech"  color="accent" formControlName="currentTech" >
+                  <md-option *ngFor="let tech of techlist" [value]="tech.value">
+                  {{tech.viewValue}}
+                  </md-option>
+               </md-select>
+            </md-card-content>
+         </md-card>
+      
+         <md-card class="my-card" >
+            <md-card-header>
+               <md-card-title class="my-card-title">Skill Score</md-card-title>
+               <md-card-subtitle>Score For Skills</md-card-subtitle>
+            </md-card-header>
+            <md-card-content >
+               <md-form-field class="my-input" color="accent" >
+                  <input mdInput placeholder="DotNet" type="number" formControlName="dotnet" required>
+               </md-form-field>
+               <md-form-field class="my-input" color="accent" >
+                  <input mdInput placeholder="Java" type="number" formControlName="java" required>
+               </md-form-field>
+               <md-form-field class="my-input" color="accent" >
+                  <input mdInput placeholder="Database" type="number" formControlName="database" required>
+               </md-form-field>
+               <md-form-field class="my-input" color="accent" >
+                  <input mdInput placeholder="Big Data" type="number" formControlName="bigdata" required>
+               </md-form-field>
+               <button md-fab  type="submit" color="primary" [disabled]="!skillForm.valid" > <i class="fa fa-check form-button" aria-hidden="true"></i></button>
+               <button md-fab color="warn" (click)="skillForm.reset()"> <i class="fa fa-times form-button" aria-hidden="true"></i></button>
+                        
+            </md-card-content>
+         </md-card>
+      
+   </div>
+</form>

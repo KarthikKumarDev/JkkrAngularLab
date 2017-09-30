@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@angular/material/theming';
+@include mat-core();
+
+@import 'app/custom-theme-1';
+@import 'app/custom-theme-2';
+
+
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif !important;
+}
+skill-form{
+    width: 100%;
+    height: 100%;
+}
+graph{
+    width: 100%;
+    height: 100%;
+}

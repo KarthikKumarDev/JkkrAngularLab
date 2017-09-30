@@ -1,0 +1,28 @@
+.m2app-dark {
+  $dark-primary: mat-palette($mat-indigo, 700, 600, 900);
+  $dark-accent:  mat-palette($mat-grey, A200, A100, A400);
+  $dark-warn:    mat-palette($mat-yellow,100,100,100);
+
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+  .sidenav {
+      background-color: black !important;
+      color: white !important;
+  }
+  .sidenav-list{
+    li{
+       a{
+           color:white !important;
+       } 
+    }
+    li:hover{
+        background-color: white;
+        a{
+           color:black !important;
+       } 
+    }
+}
+.page-header{  
+    background-color:darkorange;
+}
+  @include angular-material-theme($dark-theme);
+}

@@ -1,0 +1,20 @@
+<div  [class.m2app-dark]="isDarkTheme">
+  <div class="total-container">
+    <md-toolbar color="primary" class="toolbar">
+      <button md-icon-button color="accent" class="sidenav-button" md-button (click)="sidenav.toggle()"><i class="fa fa-bars" aria-hidden="true"></i></button>
+      <md-slide-toggle class="theme-toggle" (change)="isDarkTheme = !isDarkTheme" ></md-slide-toggle>
+      <div class="toolbar-header">Skill Charts</div> 
+    </md-toolbar>
+    <md-sidenav-container class="sidenav-container">
+      <md-sidenav mode="side" opened="true" #sidenav class="sidenav">
+        <ul class="sidenav-list">
+          <li><a routerLink="/skills"><i class="fa fa-cogs" aria-hidden="true"></i> <span>  Skills </span></a></li>
+          <li><a routerLink="/graph"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>  Charts </span></a></li>
+        </ul>
+      </md-sidenav>
+      <div class="sidenav-content">  
+        <router-outlet></router-outlet>
+      </div>
+    </md-sidenav-container>
+  </div>
+</div>
