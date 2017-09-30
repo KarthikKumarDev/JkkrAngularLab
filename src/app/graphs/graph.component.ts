@@ -50,21 +50,21 @@ constructor(){
 };
  // 
 }
-ngOnInit(): void {
-this.person = JSON.parse(localStorage.getItem("person"));
-var dataArr=[0,0,0,0];
-dataArr[0]= this.person.dotnet;
-    dataArr[1]= this.person.java
-    dataArr[2]= this.person.database;
-    dataArr[3]=this.person.bigdata;
-    var newSeriesData = {
+  ngOnInit(): void {
+      if(this.person = JSON.parse(localStorage.getItem("person"))){
+      var dataArr=[0,0,0,0];
+      dataArr[0]= this.person.dotnet;
+      dataArr[1]= this.person.java
+      dataArr[2]= this.person.database;
+      dataArr[3]=this.person.bigdata;
+      var newSeriesData = {
         name: this.person.name,
         data: dataArr,
         pointPlacement:'on'
-    };
-   
-    // Add the new data to the series array
-    this.options.series.push(newSeriesData);
-var chart = new Highcharts.Chart(this.options);
+      };
+      // Add the new data to the series array
+      this.options.series.push(newSeriesData);
+      }
+      var chart = new Highcharts.Chart(this.options);
   }
 }
