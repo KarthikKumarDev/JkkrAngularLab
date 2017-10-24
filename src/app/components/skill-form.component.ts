@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import { ReactiveFormsModule,FormsModule,FormBuilder,FormGroup,FormControl,FormControlName } from '@angular/forms';
 import { Person } from '../entities/person';
-import {MdSnackBar,DateAdapter, NativeDateAdapter} from '@angular/material';
+import {MatSnackBar,DateAdapter, NativeDateAdapter} from '@angular/material';
 @Component({
   selector: 'skill-form',
   templateUrl: 'skill-form.component.html',
@@ -13,7 +13,7 @@ export class SkillFormComponent {
   selectedValue: string;
   skillForm: FormGroup;  
   person = new Person('',0,'','',0,0,0,0);
-  constructor(private fb: FormBuilder,private snackBar:MdSnackBar) {
+  constructor(private fb: FormBuilder,private snackBar:MatSnackBar) {
     this.skillForm = this.fb.group({
       'name': [this.person.name], 
       'yearsOfExperience':[this.person.yearsOfExperience],

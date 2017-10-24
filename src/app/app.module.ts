@@ -5,7 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {OverlayContainer,MdToolbarModule,MdSidenavModule,MdButtonModule,MdSlideToggleModule,MdCardModule,MdInputModule,MdSelectModule,MdProgressSpinnerModule,MdSnackBarModule,MdDatepickerModule} from '@angular/material';
+import { MatToolbarModule,MatSidenavModule,MatButtonModule,MatSlideToggleModule,MatCardModule,MatInputModule,MatSelectModule,MatProgressSpinnerModule,MatSnackBarModule,MatDatepickerModule} from '@angular/material';
+import { OverlayContainer} from '@angular/cdk/overlay';
 import { SkillFormComponent } from './components/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
 @NgModule({
@@ -17,16 +18,16 @@ import { GraphComponent } from './graphs/graph.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MdToolbarModule,
-    MdButtonModule,
-    MdSidenavModule,
-    MdSlideToggleModule,
-    MdCardModule,
-    MdInputModule,
-    MdSelectModule,
-    MdProgressSpinnerModule,
-    MdSnackBarModule,
-    MdDatepickerModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    MatDatepickerModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
     {
