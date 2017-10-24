@@ -1,0 +1,10 @@
+  #Prerequistes 
+1) NodeJs must be installed.
+    Refer: https://nodejs.org/en/download/
+2) Code editor(VS code/ Sublime editor).
+3) Angular CLI
+    Refer: https://cli.angular.io/
+4) NPM
+    Refer: https://docs.npmjs.com/ 
+5) Angular Material Design.
+   Refer:  https://material.angular.io/guide/getting-started
