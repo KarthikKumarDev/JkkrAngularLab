@@ -2,6 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
 
+# Prerequisite 
+1) NodeJs.
+    Refer: https://nodejs.org/en/download/
+2) Code editor(VS code/ Sublime editor).
+
+3) Angular CLI
+    Refer: https://cli.angular.io/
+4) NPM
+    Refer: https://docs.npmjs.com/ 
+5) Angular Material Design.
+   Refer:  https://material.angular.io/guide/getting-started
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
