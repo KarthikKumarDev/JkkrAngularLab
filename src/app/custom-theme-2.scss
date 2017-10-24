@@ -28,5 +28,8 @@
 .toolbar{
     color: white !important;
 }
+.card-header{
+    background-color: seagreen;
+}
   @include angular-material-theme($dark-theme);
 }

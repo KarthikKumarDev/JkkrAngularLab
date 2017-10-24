@@ -25,5 +25,8 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 .toolbar{
     color: black !important;
 }
+.card-header{
+    background-color: wheat;
+}
 
 @include angular-material-theme($custom-theme);
