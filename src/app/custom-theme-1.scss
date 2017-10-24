@@ -1,4 +1,4 @@
-$custom-theme-primary: mat-palette($mat-pink);
+$custom-theme-primary: mat-palette($mat-green,A400);
 $custom-theme-accent: mat-palette($mat-blue, A200, A100, A400);
 $custom-theme-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
@@ -19,7 +19,7 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     }
 }
 .page-header{  
-    background-color:darkblue;
+    background-color:#FFF176;
 }
 
 @include angular-material-theme($custom-theme);
