@@ -2,10 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
 
-# Prerequistes 
-1) NodeJs must be installed.
+# Prerequisite 
+1) NodeJs.
     Refer: https://nodejs.org/en/download/
 2) Code editor(VS code/ Sublime editor).
+
 3) Angular CLI
     Refer: https://cli.angular.io/
 4) NPM
