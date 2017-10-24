@@ -23,6 +23,10 @@
 }
 .page-header{  
     background-color:darkorange;
+    color: white;
+}
+.toolbar{
+    color: white !important;
 }
   @include angular-material-theme($dark-theme);
 }
