@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatToolbarModule,MatSidenavModule,MatButtonModule,MatSlideToggleModule,MatCardModule,MatInputModule,MatSelectModule,MatProgressSpinnerModule,MatSnackBarModule,MatDatepickerModule} from '@angular/material';
 import { OverlayContainer} from '@angular/cdk/overlay';
-import { SkillFormComponent } from './components/skill-form.component';
+import { SkillFormComponent } from './skillForm/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
 @NgModule({
   declarations: [
