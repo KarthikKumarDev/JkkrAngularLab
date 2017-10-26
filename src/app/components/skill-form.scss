@@ -1,5 +1,5 @@
 .page-header{
-    padding: 2em;
+    padding: 1em;
     clear: left;
     text-align: center;
     padding-right: 3%;
@@ -11,10 +11,10 @@
     width: 100%;
 }
 .my-card{
-    width: 30%;
-    height: 50%;
+    width: 20%;
+    height: 30%;
     margin-top: 5%;
-    min-width: 440px;
+    min-width: 300px;
     min-height: 400px;
     box-shadow: 0px 1px 5px black !important;
     .my-card-title{
@@ -30,6 +30,9 @@
         width: 100%;
         font-size: 16px !important;
     }
+}
+.card-header{
+    height: 50px !important;
 }
 .card-container{
     display: flex;
