@@ -18,7 +18,8 @@ constructor(){
       chart: {
         polar:true,
         type:'line',
-        renderTo:'container1'
+        renderTo:'container1',
+        backgroundColor: '#ECEFF1'
     },
   
     
