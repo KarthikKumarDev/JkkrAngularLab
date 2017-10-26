@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { ReactiveFormsModule,FormsModule,FormBuilder,FormGroup,FormControl,FormControlName } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule,FormBuilder,FormGroup,FormControl,FormControlName,Validators } from '@angular/forms';
 import { Person } from '../entities/person';
 import {MatSnackBar,DateAdapter, NativeDateAdapter} from '@angular/material';
 @Component({
@@ -19,10 +19,10 @@ export class SkillFormComponent {
       'yearsOfExperience':[this.person.yearsOfExperience],
       'favouriteTech':[this.person.favouriteTech],
       'currentTech':[this.person.currentTech],
-      'dotnet':[this.person.dotnet],
-      'java':[this.person.java],
-      'database':[this.person.database],
-      'bigdata':[this.person.bigdata]
+      'dotnet':[this.person.dotnet,[Validators.min(0),Validators.max(10)]],
+      'java':[this.person.java,[Validators.min(0),Validators.max(10)]],
+      'database':[this.person.database,[Validators.min(0),Validators.max(10)]],
+      'bigdata':[this.person.bigdata,[Validators.min(0),Validators.max(10)]]
     });
   }
 

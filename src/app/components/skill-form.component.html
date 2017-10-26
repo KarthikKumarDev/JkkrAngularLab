@@ -17,18 +17,20 @@
                   <input matInput placeholder="Years Of Experience" type="number" formControlName="yearsOfExperience" required>
                </mat-form-field>
                <mat-form-field class="my-input" color="accent" >
-               <mat-select class="my-select-input" placeholder="Favorite Tech" name="tech" multiple="" color="accent" formControlName="favouriteTech" >
+               <mat-select class="my-select-input" placeholder="Favorite Tech" name="tech" multiple="" color="accent" formControlName="favouriteTech" required>
                   <mat-option *ngFor="let tech of techlist" [value]="tech.value">
                   {{tech.viewValue}}
                   </mat-option>
                </mat-select>
+               <mat-error *ngIf="skillForm.controls.favouriteTech.hasError('required')">Value Required !</mat-error>
                </mat-form-field>
                <mat-form-field class="my-input" color="accent" >
-               <mat-select class="my-select-input" placeholder="Current Tech" name="tech"  color="accent" formControlName="currentTech" >
+               <mat-select class="my-select-input" placeholder="Current Tech" name="tech"  color="accent" formControlName="currentTech" required>
                   <mat-option *ngFor="let tech of techlist" [value]="tech.value">
                   {{tech.viewValue}}
                   </mat-option>
                </mat-select>
+               <mat-error *ngIf="skillForm.controls.currentTech.hasError('required')">Value Required !</mat-error>
                </mat-form-field>
             </mat-card-content>
          </mat-card>
@@ -41,15 +43,27 @@
             <mat-card-content >
                <mat-form-field class="my-input" color="accent" >
                   <input matInput placeholder="DotNet" type="number" formControlName="dotnet" required>
+                  <mat-error *ngIf="skillForm.controls.dotnet.hasError('required')">Value Required !</mat-error>
+                  <mat-error *ngIf="skillForm.controls.dotnet.hasError('min')">Minimum value is 0.</mat-error>
+                  <mat-error *ngIf="skillForm.controls.dotnet.hasError('max')">Maximum value is 10.</mat-error>
                </mat-form-field>
                <mat-form-field class="my-input" color="accent" >
                   <input matInput placeholder="Java" type="number" formControlName="java" required>
+                  <mat-error *ngIf="skillForm.controls.java.hasError('required')">Value Required !</mat-error>
+                  <mat-error *ngIf="skillForm.controls.java.hasError('min')">Minimum value is 0.</mat-error>
+                  <mat-error *ngIf="skillForm.controls.java.hasError('max')">Maximum value is 10.</mat-error>
                </mat-form-field>
                <mat-form-field class="my-input" color="accent" >
                   <input matInput placeholder="Database" type="number" formControlName="database" required>
+                  <mat-error *ngIf="skillForm.controls.database.hasError('required')">Value Required !</mat-error>
+                  <mat-error *ngIf="skillForm.controls.database.hasError('min')">Minimum value is 0.</mat-error>
+                  <mat-error *ngIf="skillForm.controls.database.hasError('max')">Maximum value is 10.</mat-error>
                </mat-form-field>
                <mat-form-field class="my-input" color="accent" >
                   <input matInput placeholder="Big Data" type="number" formControlName="bigdata" required>
+                  <mat-error *ngIf="skillForm.controls.bigdata.hasError('required')">Value Required !</mat-error>
+                  <mat-error *ngIf="skillForm.controls.bigdata.hasError('min')">Minimum value is 0.</mat-error>
+                  <mat-error *ngIf="skillForm.controls.bigdata.hasError('max')">Maximum value is 10.</mat-error>
                </mat-form-field>
                <button mat-fab  type="submit" color="primary" [disabled]="!skillForm.valid" > <i class="fa fa-check form-button" aria-hidden="true"></i></button>
                <button mat-fab color="warn" (click)="skillForm.reset()"> <i class="fa fa-times form-button" aria-hidden="true"></i></button>
