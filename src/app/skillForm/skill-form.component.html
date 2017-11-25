@@ -1,7 +1,7 @@
 <header class="page-header">
    Skill Details
 </header>
-<form class="my-form" [formGroup]="skillForm" (ngSubmit)="onSkillSave()" >
+<form class="my-form" [formGroup]="skillForm" >
    <div class="card-container">
       
          <mat-card class="my-card">
@@ -65,7 +65,7 @@
                   <mat-error *ngIf="skillForm.controls.bigdata.hasError('min')">Minimum value is 0.</mat-error>
                   <mat-error *ngIf="skillForm.controls.bigdata.hasError('max')">Maximum value is 10.</mat-error>
                </mat-form-field>
-               <button mat-fab  type="submit" color="primary" [disabled]="!skillForm.valid" > <i class="fa fa-check form-button" aria-hidden="true"></i></button>
+               <button mat-fab  type="submit" (click)="onSkillSave()" color="primary" [disabled]="!skillForm.valid" > <i class="fa fa-check form-button" aria-hidden="true"></i></button>
                <button mat-fab color="warn" (click)="skillForm.reset()"> <i class="fa fa-times form-button" aria-hidden="true"></i></button>
                         
             </mat-card-content>
