@@ -1,11 +1,16 @@
 .m2app-dark {
   $dark-primary: mat-palette($mat-indigo, 700, 600, 900);
   $dark-accent:  mat-palette($mat-grey, A200, A100, A400);
-  $dark-warn:    mat-palette($mat-yellow,100,100,100);
+  $dark-warn:    mat-palette($mat-red,500);
 
   $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  .toolbar{
+    color: white !important;
+    background: black !important;
+  }
   .sidenav {
-      background-color: black !important;
+      background-color: #212121 !important;
       color: white !important;
   }
   .sidenav-list{
@@ -21,15 +26,22 @@
        } 
     }
 }
-.page-header{  
-    background-color:darkorange;
-    color: white;
+.sidenav-container{
+  background: #01579B; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #0288D1 , #01579B); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #0288D1, #01579B); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #0288D1, #01579B); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #0288D1 , #01579B); /* Standard syntax */
 }
-.toolbar{
-    color: white !important;
+.page-header{  
+    background-color:#212121;
+    color: white;
 }
 .card-header{
     background-color: dimgrey;
+}
+.mat-card-subtitle{
+    color:white !important;
 }
   @include angular-material-theme($dark-theme);
 }

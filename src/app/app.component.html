@@ -1,7 +1,7 @@
 <div  [class.m2app-dark]="isDarkTheme">
   <div class="total-container">
-    <mat-toolbar color="primary" class="toolbar">
-      <button mat-icon-button color="accent" class="sidenav-button" mat-button (click)="sidenav.toggle()"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <mat-toolbar class="toolbar">
+      <button mat-icon-button color="primary" class="sidenav-button" mat-button (click)="sidenav.toggle()"><i class="fa fa-bars" aria-hidden="true"></i></button>
       <mat-slide-toggle class="theme-toggle" (change)="isDarkTheme = !isDarkTheme" ></mat-slide-toggle>
       <div class="toolbar-header">Skill Charts</div> 
     </mat-toolbar>
