@@ -11,6 +11,7 @@
   }
   .sidenav {
       background-color: #212121 !important;
+      background: none;
       color: white !important;
   }
   .sidenav-list{
@@ -27,14 +28,15 @@
     }
 }
 .sidenav-container{
-  background: #01579B; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #0288D1 , #01579B); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #0288D1, #01579B); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #0288D1, #01579B); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #0288D1 , #01579B); /* Standard syntax */
+  background: #03A9F4; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #03A9F4 , #01579B); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #03A9F4, #01579B); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #03A9F4, #01579B); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #03A9F4 , #01579B); /* Standard syntax */
 }
 .page-header{  
-    background-color:#212121;
+    background-color:#212121 !important;
+    background: none;
     color: white;
 }
 .card-header{

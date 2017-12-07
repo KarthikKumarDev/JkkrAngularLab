@@ -3,11 +3,11 @@ $custom-theme-accent: mat-palette($mat-black,500);
 $custom-theme-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
 .toolbar{
-    background: #9D0015 !important;
+    background-color: crimson !important;
     color: white !important;
 }
 .sidenav {
-  background-color: #D32F2F !important;
+  background: url(../src/assets/new.jpg);
 }
 .sidenav-list{
     li{
@@ -23,14 +23,14 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     }
 }
 .page-header{  
-    background-color: #D32F2F;
+    background: url(../src/assets/new.jpg);
     color: black;
 }
 .toolbar{
     color: black !important;
 }
 .card-header{
-    background-color: #D32F2F;
+    background-color: #EDEDED;
 }
 .mat-card-subtitle{
     color:black !important;
