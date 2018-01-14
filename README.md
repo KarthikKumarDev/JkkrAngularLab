@@ -1,7 +1,7 @@
 # Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
-Deployed at www.jkkr-lab.firebaseapp.com
+Deployed at https://jkkr-lab.firebaseapp.com/
 # Prerequisite 
 1) NodeJs.
     Refer: https://nodejs.org/en/download/
