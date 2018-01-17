@@ -7,23 +7,21 @@
 
   .toolbar{
     color: white !important;
-    background: black !important;
+    background-color: dimgray !important;
   }
   .sidenav {
-      background-color: #212121 !important;
-      background: none;
-      color: white !important;
+    background-color: dimgray !important ;
   }
   .sidenav-list{
     li{
        a{
-           color:white !important;
+           color: white !important;
        } 
     }
     li:hover{
         background-color: white;
         a{
-           color:black !important;
+           color : black !important;
        } 
     }
 }
@@ -37,8 +35,15 @@
 .page-header{  
     background-color:#212121 !important;
     background: none;
-    color: white;
+    color: white !important;
 }
+
+.page-footer{
+    background-color:#212121 !important;
+    background: none;
+    color: white !important;
+}
+
 .card-header{
     background-color: dimgrey;
 }
@@ -47,3 +52,5 @@
 }
   @include angular-material-theme($dark-theme);
 }
+
+

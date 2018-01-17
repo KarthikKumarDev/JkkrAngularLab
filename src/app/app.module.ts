@@ -5,18 +5,23 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatToolbarModule,MatSidenavModule,MatButtonModule,MatSlideToggleModule,MatCardModule,MatInputModule,MatSelectModule,MatProgressSpinnerModule,MatSnackBarModule,MatDatepickerModule} from '@angular/material';
+import { MatToolbarModule,MatSidenavModule,MatButtonModule,MatSlideToggleModule,MatCardModule,MatInputModule,MatSelectModule,MatStepperModule,MatProgressSpinnerModule,MatSnackBarModule,MatDatepickerModule} from '@angular/material';
 import { OverlayContainer} from '@angular/cdk/overlay';
 import { SkillFormComponent } from './skillForm/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
+import { QualificationComponent }from './qualification/qualification.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     SkillFormComponent,
     GraphComponent,
+    QualificationComponent,
   ],
   imports: [
     BrowserModule,
+    MatStepperModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -37,6 +42,10 @@ import { GraphComponent } from './graphs/graph.component';
     {
       path: 'graph',
       component: GraphComponent,
+    },
+    {
+      path: 'qualification',
+      component: QualificationComponent,
     }
 
 ])

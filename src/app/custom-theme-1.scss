@@ -1,14 +1,22 @@
 $custom-theme-primary: mat-palette($mat-grey,900);
-$custom-theme-accent: mat-palette($mat-black,500);
+$custom-theme-accent: mat-palette($mat-red,500);
 $custom-theme-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
 .toolbar{
-    background-color: crimson !important;
+    background-color: beige !important;
     color: white !important;
 }
 .sidenav {
-  background: url(../src/assets/new.jpg);
+     background-color: LemonChiffon  !important;
 }
+
+
+
+.page-footer{
+    background-color: khaki !important;
+}
+
+
 .sidenav-list{
     li{
        a{
@@ -23,17 +31,19 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     }
 }
 .page-header{  
-    background: url(../src/assets/new.jpg);
+    background-color: khaki !important;
     color: black;
 }
 .toolbar{
-    color: black !important;
+    background-color: peru !important;
 }
 .card-header{
-    background-color: #EDEDED;
+    background-color: LemonChiffon ;
 }
 .mat-card-subtitle{
     color:black !important;
 }
+
+
 
 @include angular-material-theme($custom-theme);
