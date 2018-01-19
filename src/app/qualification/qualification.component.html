@@ -1,36 +1,63 @@
-<h1>Hiiiii</h1>
-<button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
+<header class="page-header">
+  Qualification Details
+</header>
+ <div class="card-container">
 
-<mat-horizontal-stepper [linear]="isLinear">
+ 
+<mat-horizontal-stepper class="my-card" [linear]="isLinear">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
+    
+        <mat-card>
+          <mat-card-header class="card-header">
+            <mat-card-title class="my-card-title">Fill out your name</mat-card-title>
+          </mat-card-header>
+          <mat-form-field class="my-input" color="accent">
+            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button class="form-button" color="primary" matStepperNext>Next</button>
+          </div>
+        </mat-card>
+
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
+      <mat-card>
+        <mat-card-header class="card-header">
+          <mat-card-title class="my-card-title">Fill out your Address</mat-card-title>
+        </mat-card-header>
+        <mat-form-field class="my-input" color="accent">
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button class="form-button" color="primary" matStepperPrevious>Back</button>
+          <button mat-button class="form-button" color="primary" matStepperNext>Next</button>
+        </div>
+      </mat-card>
+
     </form>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-    </div>
+    <mat-card>
+      <mat-card-header class="card-header">
+        <mat-card-title class="my-card-title">You are now done</mat-card-title>
+      </mat-card-header>
+      <div>
+        <button mat-button class="form-button" color="primary" matStepperPrevious>Back</button>
+      </div>
+    </mat-card>
+  
   </mat-step>
 </mat-horizontal-stepper>
+</div> 
+<footer class="page-footer">
+  <div>
+    <p>Posted by: KK </p>
+    <p>Contact information:
+      <a href="mailto:kk1996@gmail.com">
+        kk1996@gmail.com</a>.</p>
+  </div>
 
+</footer>

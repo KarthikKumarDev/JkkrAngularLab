@@ -1,0 +1,65 @@
+.page-header{
+    padding: 1em;
+    clear: left;
+    text-align: center;
+    padding-right: 3%;
+    font-size: 20px;
+    box-shadow: 0px 1px 5px black;
+    width: 1140px;
+}
+
+
+.page-footer{
+    
+    width: 1140px;
+    background-color: chocolate;
+    padding: 1em;
+    clear: left;
+    text-align: left;
+    padding-right: 3%;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0px 1px 20px black;
+
+}
+.my-form{
+    height: 75%;
+    width: 100%;
+}
+.my-card{
+    width: 20%;
+    height: 30%;
+    margin-top: 5%;
+    min-width: 500px;
+    min-height: 400px;
+    box-shadow: 0px 1px 5px beige;
+    .my-card-title{
+        font-size: 18px !important;
+    }
+    .my-input{
+        padding-left: 10px;
+        padding-top: 5px;
+        width: 100%;
+        font-size: 16px !important;
+    }
+    .my-select-input{
+        width: 100%;
+        font-size: 16px !important;
+    }
+}
+.card-header{
+    height: 50px !important;
+}
+.card-container{
+    background-color: rgb(235, 233, 234);
+    opacity:0.9;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    width: 102%;
+    height: 100%;
+}
+.form-button{
+    font-size:12px;
+}
