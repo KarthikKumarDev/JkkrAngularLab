@@ -2,18 +2,15 @@ $custom-theme-primary: mat-palette($mat-grey,900);
 $custom-theme-accent: mat-palette($mat-red,500);
 $custom-theme-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
-.toolbar{
-    background-color: beige !important;
-    color: white !important;
-}
+
 .sidenav {
-     background-color: LemonChiffon  !important;
+     background-color: peru  !important;
 }
 
 
 
 .page-footer{
-    background-color: peru !important;
+    background-color: khaki !important;
 }
 
 
@@ -31,14 +28,14 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     }
 }
 .page-header{  
-    background-color: peru !important;
+    background-color: khaki !important;
     color: black;
 }
 .toolbar{
     background-color: peru !important;
 }
 .card-header{
-    background-color: LemonChiffon ;
+    background-color: khaki ;
 }
 .mat-card-subtitle{
     color:black !important;

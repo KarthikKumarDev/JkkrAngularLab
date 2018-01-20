@@ -50,11 +50,14 @@
 }
 
 .card-header{
-    background-color: dimgrey;
+    background-color: #212121;
 }
 .mat-card-subtitle{
     color:white !important;
 }
+
+
+
   @include angular-material-theme($dark-theme);
 }
 
