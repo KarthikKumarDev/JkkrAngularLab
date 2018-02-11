@@ -1,0 +1,40 @@
+<header class="page-header">
+    Qualification Details
+  </header>
+   <div class="card-container">
+
+
+ <table>
+     <tr>
+         <th>Name</th>
+         <th>Favourite Technology</th>
+         <th>Current Technology</th>
+         <th>years Of Experience</th>
+     </tr>
+    <tr *ngFor='let contact of contacts'>
+        <td >{{ contact.name }} </td>
+        <td>{{contact.favouriteTech}}</td>
+        <td>{{contact.currentTech}}</td>
+        <td>{{contact.yearsOfExperience}}</td>
+    </tr>
+</table> 
+<!-- <mat-table #peopleTable >
+
+    <ng-container MatColumnDef="Name">
+        <mat-header-cell *MatHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *MatCellDef="let contact of contacts">{{contact.name}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *MatHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *MatRowDef="let row; columns:displayedColumns;"></mat-row>
+</mat-table> -->
+</div>
+<footer class="page-footer">
+    <div>
+      <p>Posted by: KK </p>
+      <p>Contact information:
+        <a href="mailto:kk1996@gmail.com">
+          kk1996@gmail.com</a>.</p>
+    </div>
+  
+  </footer>

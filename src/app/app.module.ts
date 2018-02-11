@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule }   from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms'
-
+import {Http,HttpModule} from '@angular/http';
+import {ConnectionBackend} from '@angular/http';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatToolbarModule,MatSidenavModule,MatButtonModule,MatSlideToggleModule,MatCardModule,MatInputModule,MatSelectModule,MatStepperModule,MatProgressSpinnerModule,MatSnackBarModule,MatDatepickerModule} from '@angular/material';
@@ -10,6 +11,8 @@ import { OverlayContainer} from '@angular/cdk/overlay';
 import { SkillFormComponent } from './skillForm/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
 import { QualificationComponent }from './qualification/qualification.component';
+import { PeopleComponent } from './People/people.component';
+
 
 
 @NgModule({
@@ -18,8 +21,10 @@ import { QualificationComponent }from './qualification/qualification.component';
     SkillFormComponent,
     GraphComponent,
     QualificationComponent,
+    PeopleComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     MatStepperModule,
     BrowserAnimationsModule,
@@ -46,7 +51,12 @@ import { QualificationComponent }from './qualification/qualification.component';
     {
       path: 'qualification',
       component: QualificationComponent,
+    },
+    {
+      path: 'people',
+      component: PeopleComponent,
     }
+ 
 
 ])
   ],
