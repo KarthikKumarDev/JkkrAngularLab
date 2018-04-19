@@ -39,11 +39,6 @@
     background: none;
     color: white;
 }
-.card-header{
-    background-color: dimgrey;
-}
-.mat-card-subtitle{
-    color:white !important;
-}
+
   @include angular-material-theme($dark-theme);
 }
