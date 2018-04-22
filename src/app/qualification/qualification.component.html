@@ -2,12 +2,9 @@
   Qualification Details
 </header>
  <div class="card-container">
-
- 
 <mat-horizontal-stepper class="my-card" [linear]="isLinear">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-    
         <mat-card>
           <mat-card-header class="card-header">
             <mat-card-title class="my-card-title">Fill out your name</mat-card-title>
@@ -19,7 +16,6 @@
             <button mat-button class="form-button" color="primary" matStepperNext>Next</button>
           </div>
         </mat-card>
-
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
@@ -36,7 +32,6 @@
           <button mat-button class="form-button" color="primary" matStepperNext>Next</button>
         </div>
       </mat-card>
-
     </form>
   </mat-step>
   <mat-step>
@@ -48,7 +43,6 @@
         <button mat-button class="form-button" color="primary" matStepperPrevious>Back</button>
       </div>
     </mat-card>
-  
   </mat-step>
 </mat-horizontal-stepper>
 </div> 
@@ -59,5 +53,4 @@
       <a href="mailto:kk1996@gmail.com">
         kk1996@gmail.com</a>.</p>
   </div>
-
 </footer>

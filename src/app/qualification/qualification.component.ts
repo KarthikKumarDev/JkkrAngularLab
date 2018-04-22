@@ -10,11 +10,7 @@ export class QualificationComponent {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-
-
     constructor( private _formBuilder: FormBuilder) { }
-
-
     ngOnInit() {
       this.firstFormGroup = this._formBuilder.group({
         firstCtrl: ['', Validators.required]

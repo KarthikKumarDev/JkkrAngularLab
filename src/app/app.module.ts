@@ -11,17 +11,13 @@ import { OverlayContainer} from '@angular/cdk/overlay';
 import { SkillFormComponent } from './skillForm/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
 import { QualificationComponent }from './qualification/qualification.component';
-import { PeopleComponent } from './People/people.component';
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
     SkillFormComponent,
     GraphComponent,
-    QualificationComponent,
-    PeopleComponent
+    QualificationComponent
   ],
   imports: [
     HttpModule,
@@ -51,19 +47,12 @@ import { PeopleComponent } from './People/people.component';
     {
       path: 'qualification',
       component: QualificationComponent,
-    },
-    {
-      path: 'people',
-      component: PeopleComponent,
     }
- 
-
 ])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-
 export class AppModule {
   constructor(overlayContainer : OverlayContainer){
    // overlayContainer.themeClass='custom-theme-1'
