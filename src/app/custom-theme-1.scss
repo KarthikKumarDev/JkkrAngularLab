@@ -1,13 +1,13 @@
 $custom-theme-primary: mat-palette($mat-grey,900);
-$custom-theme-accent: mat-palette($mat-blue-grey,900);
+$custom-theme-accent: mat-palette($mat-blue,800);
 $custom-theme-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
 .toolbar{
-    background-color: #2196F3 !important;
+    background-color: #1565c0 !important;
     color: white !important;
 }
 .sidenav {
-  background-color:burlywood !important;
+  background-color:#1565c0 !important;
 }
 .sidenav-list{
     li{
@@ -23,7 +23,7 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     }
 }
 .page-header{  
-    background-color: #ADADAD;
+    background-color: #dcdde1;
     color: black;
 }
 .toolbar{

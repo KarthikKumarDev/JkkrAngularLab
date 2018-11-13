@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { Person } from '../entities/person';
-import HighchartsMore from 'highcharts/highcharts-more';   
+import * as HighchartsMore from 'highcharts/highcharts-more.src.js';
 HighchartsMore(Highcharts); 
 
 @Component({

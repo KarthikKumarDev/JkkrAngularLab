@@ -1,19 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule }   from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatToolbarModule,MatSidenavModule,MatButtonModule,MatSlideToggleModule,MatCardModule,MatInputModule,MatSelectModule,MatProgressSpinnerModule,MatSnackBarModule,MatDatepickerModule} from '@angular/material';
-import { OverlayContainer} from '@angular/cdk/overlay';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatInputModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule, MatDatepickerModule } from '@angular/material';
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { SkillFormComponent } from './skillForm/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
+import { GitStatsComponent } from './git-stats/git-stats.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GitHubService } from './services/github.service';
+import { HttpModule } from '../../node_modules/@angular/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     SkillFormComponent,
     GraphComponent,
+    GitStatsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,24 +36,33 @@ import { GraphComponent } from './graphs/graph.component';
     MatSnackBarModule,
     MatDatepickerModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule,
     RouterModule.forRoot([
-    {
-      path: 'skills',
-      component: SkillFormComponent,  
-    },
-    {
-      path: 'graph',
-      component: GraphComponent,
-    }
-
-])
+      {
+        path: '',
+        component: GitStatsComponent,
+      },
+      {
+        path: 'skills',
+        component: SkillFormComponent,
+      },
+      {
+        path: 'graph',
+        component: GraphComponent,
+      },
+      {
+        path: 'git-stats',
+        component: GitStatsComponent
+      }
+    ])
   ],
-  providers: [],
+  providers: [GitHubService],
   bootstrap: [AppComponent]
 })
 
 export class AppModule {
-  constructor(overlayContainer : OverlayContainer){
-   // overlayContainer.themeClass='custom-theme-1'
+  constructor(overlayContainer: OverlayContainer) {
+    // overlayContainer.themeClass='custom-theme-1'
   }
- }
+}

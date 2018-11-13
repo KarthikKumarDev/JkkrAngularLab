@@ -7,6 +7,5 @@ import { Person} from './entities/person';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
-  isDarkTheme: boolean = false;  
+  isDarkTheme = false;
 }
