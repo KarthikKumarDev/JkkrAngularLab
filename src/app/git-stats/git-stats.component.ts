@@ -12,23 +12,33 @@ HighchartsMore(Highcharts);
   styleUrls: ['git-stats.scss'],
 })
 export class GitStatsComponent {
-  options: any;
+  repoGraphOptions: any;
+  contributionGraphOptions: any;
+
   person: Person;
   dataArray = [];
+  additions = [];
+  deletions = [];
+  dateTimes = [];
 
   constructor(gitHubService: GitHubService) {
+    this.visualiseRepoSizeInfo(gitHubService);
+    this.visualiseContributionsInfo(gitHubService);
+  }
+
+  private visualiseRepoSizeInfo(gitHubService: GitHubService) {
     gitHubService.getAllRepos().subscribe(data => {
       data.forEach(element => {
         if (!element.fork) {
-          this.dataArray.push([element.name, element.size])
+          this.dataArray.push([element.name, element.size]);
         }
       });
-      this.InitContributionInfoGraph();
-    })
+      this.initRepoSizeGraph();
+    });
   }
-  
-  private InitContributionInfoGraph() {
-    this.options = {
+
+  private initRepoSizeGraph() {
+    this.repoGraphOptions = {
       chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
@@ -37,7 +47,7 @@ export class GitStatsComponent {
         type: 'pie'
       },
       title: {
-        text: 'Contribution Info'
+        text: 'Repo Size'
       },
       tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -53,11 +63,66 @@ export class GitStatsComponent {
         }
       },
       series: [{
-        name: 'Brands',
+        name: 'size',
         colorByPoint: true,
         data: this.dataArray
       }]
     };
-    var chart = new Highcharts.Chart(this.options);
+    var repoInfochart = new Highcharts.Chart(this.repoGraphOptions);
+  }
+
+  private visualiseContributionsInfo(gitHubService: GitHubService) {
+    gitHubService.getRepoStats("angular").subscribe(data => {
+      data[0].weeks.forEach(element => {
+        if (element.c) {
+          this.additions.push(element.a);
+          this.deletions.push(element.d);
+          this.dateTimes.push(gitHubService.convertUnixTimeStampToUTC(element.w));
+        }
+      });
+      console.log(this.dateTimes)
+      this.initContributionGraph();
+    });
+  }
+
+  private initContributionGraph() {
+    this.contributionGraphOptions =
+      {
+        chart: {
+          type: 'area',
+          renderTo: 'container2',
+        },
+        title: {
+          text: 'This Project Contributions'
+        },
+        subtitle: {
+          text: 'Additions, Deletions'
+        },
+        xAxis: {
+          categories: this.dateTimes,
+          crosshair: true
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: 'count'
+          }
+        },
+        plotOptions: {
+          column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+          }
+        },
+        series: [{
+          name: 'Additions',
+          data: this.additions
+        },
+        {
+          name: 'Deletions',
+          data: this.deletions
+        }]
+      }
+    var contributionChart = new Highcharts.Chart(this.contributionGraphOptions);
   }
 }
