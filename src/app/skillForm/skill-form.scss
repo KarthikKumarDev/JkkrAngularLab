@@ -6,10 +6,12 @@
     font-size: 20px;
     box-shadow: 0px 1px 5px black;
 }
+
 .my-form{
     height: 75%;
     width: 100%;
 }
+
 .my-card{
     width: 20%;
     height: 30%;
@@ -17,23 +19,28 @@
     min-width: 300px;
     min-height: 400px;
     box-shadow: 0px 1px 5px black !important;
+
     .my-card-title{
         font-size: 18px !important;
     }
+
     .my-input{
         padding-left: 10px;
         padding-top: 5px;
         width: 96%;
         font-size: 16px !important;
     }
+
     .my-select-input{
         width: 100%;
         font-size: 16px !important;
     }
 }
+
 .card-header{
     height: 50px !important;
 }
+
 .card-container{
     display: flex;
     flex-direction: row;
@@ -42,6 +49,11 @@
     width: 100%;
     height: 100%;
 }
+
 .form-button{
     font-size:26px;
+}
+
+.skills-header{
+    padding-left: 32px;
 }
