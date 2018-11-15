@@ -1,5 +1,5 @@
 .parent-card{
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 2%;
     margin-right: 2%;
     display: flex;
@@ -23,4 +23,9 @@
 
 .my-spinner{
     position:absolute;
+}
+
+.repo-dropdown{
+    width: 0;
+    font-size: 15px;
 }

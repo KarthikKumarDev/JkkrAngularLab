@@ -1,10 +1,15 @@
 <header class="page-header">
-   Git Stats
+    Git Stats
+    <mat-select *ngIf="isDataLoaded" class="repo-dropdown" matInput (selectionChange)="onRepoSelectionChanged($event)" color="accent">
+        <mat-option *ngFor="let repo of repoList" [value]="repo">
+            {{repo}}
+        </mat-option>
+    </mat-select>
 </header>
+
 <div class="parent-card">
-    <div class="mat-elevation-z5 container" id="container1" >
+    <div class="mat-elevation-z5 container" id="container1">
     </div>
-    
-    <div class="mat-elevation-z5 container" id="container2" >
+    <div class="mat-elevation-z5 container" id="container2">
     </div>
 </div>

@@ -6,6 +6,8 @@ import { GitHubService } from '../services/github.service';
 
 HighchartsMore(Highcharts);
 
+
+
 @Component({
   selector: 'git-stats',
   templateUrl: 'git-stats.component.html',
@@ -14,23 +16,29 @@ HighchartsMore(Highcharts);
 export class GitStatsComponent {
   repoGraphOptions: any;
   contributionGraphOptions: any;
-
+  isDataLoaded: Boolean;
+  gitHubService: any;
   person: Person;
   dataArray = [];
   additions = [];
   deletions = [];
   dateTimes = [];
+  repoList = [];
 
   constructor(gitHubService: GitHubService) {
-    this.visualiseRepoSizeInfo(gitHubService);
-    this.visualiseContributionsInfo(gitHubService);
+
+    this.gitHubService = gitHubService;
+    this.visualiseRepoSizeInfo();
+    this.visualiseContributionsInfo();
+    
   }
 
-  private visualiseRepoSizeInfo(gitHubService: GitHubService) {
-    gitHubService.getAllRepos().subscribe(data => {
+  private visualiseRepoSizeInfo() {
+    this.gitHubService.getAllRepos().subscribe(data => {
       data.forEach(element => {
-        if (!element.fork) {
+        if (!element.fork && !element.name.includes('-') ) {
           this.dataArray.push([element.name, element.size]);
+          this.repoList.push(element.name);
         }
       });
       this.initRepoSizeGraph();
@@ -71,21 +79,21 @@ export class GitStatsComponent {
     var repoInfochart = new Highcharts.Chart(this.repoGraphOptions);
   }
 
-  private visualiseContributionsInfo(gitHubService: GitHubService) {
-    gitHubService.getRepoStats("angular").subscribe(data => {
+  private visualiseContributionsInfo(repoName = "angular") {
+    this.resetDataArrays();
+    this.gitHubService.getRepoStats(repoName).subscribe(data => {
       data[0].weeks.forEach(element => {
         if (element.c) {
           this.additions.push(element.a);
           this.deletions.push(element.d);
-          this.dateTimes.push(gitHubService.convertUnixTimeStampToUTC(element.w));
+          this.dateTimes.push(this.gitHubService.convertUnixTimeStampToUTC(element.w));
         }
       });
-      console.log(this.dateTimes)
-      this.initContributionGraph();
+      this.initContributionGraph(repoName);
     });
   }
 
-  private initContributionGraph() {
+  private initContributionGraph(repoName: string) {
     this.contributionGraphOptions =
       {
         chart: {
@@ -93,7 +101,7 @@ export class GitStatsComponent {
           renderTo: 'container2',
         },
         title: {
-          text: 'This Project Contributions'
+          text: 'Project ' + repoName + ' Contributions'
         },
         subtitle: {
           text: 'Additions, Deletions'
@@ -124,5 +132,16 @@ export class GitStatsComponent {
         }]
       }
     var contributionChart = new Highcharts.Chart(this.contributionGraphOptions);
+    this.isDataLoaded = true;
+  }
+
+  onRepoSelectionChanged(evt: any) {
+    this.visualiseContributionsInfo(evt.value)
+  }
+
+  private resetDataArrays() {
+    this.dateTimes = [];
+    this.additions = [];
+    this.deletions = [];
   }
 }
