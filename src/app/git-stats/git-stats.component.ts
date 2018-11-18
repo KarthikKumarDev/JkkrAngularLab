@@ -22,6 +22,7 @@ export class GitStatsComponent {
   dataArray = [];
   additions = [];
   deletions = [];
+  commits = [];
   dateTimes = [];
   repoList = [];
 
@@ -86,6 +87,7 @@ export class GitStatsComponent {
         if (element.c) {
           this.additions.push(element.a);
           this.deletions.push(element.d);
+          this.commits.push(element.c);
           this.dateTimes.push(this.gitHubService.convertUnixTimeStampToUTC(element.w));
         }
       });
@@ -104,7 +106,7 @@ export class GitStatsComponent {
           text: 'Project ' + repoName + ' Contributions'
         },
         subtitle: {
-          text: 'Additions, Deletions'
+          text: 'Additions, Deletions, Commits'
         },
         xAxis: {
           categories: this.dateTimes,
@@ -129,6 +131,9 @@ export class GitStatsComponent {
         {
           name: 'Deletions',
           data: this.deletions
+        },{
+          name: 'Commits',
+          data: this.commits
         }]
       }
     var contributionChart = new Highcharts.Chart(this.contributionGraphOptions);
@@ -143,5 +148,6 @@ export class GitStatsComponent {
     this.dateTimes = [];
     this.additions = [];
     this.deletions = [];
+    this.commits = [];
   }
 }
