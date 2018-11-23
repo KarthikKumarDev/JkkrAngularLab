@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { map } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
 
 @Injectable()
 export class GitHubService {
@@ -13,7 +13,7 @@ export class GitHubService {
   }
   
   getRepoStats(repoName: string) {
-    return this.http.get(`https://api.github.com/repos/karthikkumar1996/`+ repoName + `/stats/contributors`).pipe(map((res:Response) => res.json()));
+    return this.http.get(`https://api.github.com/repos/karthikkumar1996/`+ repoName + `/stats/contributors`).pipe(map((res:Response) => res.json()), retry(3));
   }
 
   convertUnixTimeStampToUTC(unixTimeStamp: any): any {
