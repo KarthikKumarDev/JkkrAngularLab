@@ -25,19 +25,18 @@ export class GitStatsComponent {
   commits = [];
   dateTimes = [];
   repoList = [];
-
   constructor(gitHubService: GitHubService) {
 
     this.gitHubService = gitHubService;
     this.visualiseRepoSizeInfo();
     this.visualiseContributionsInfo();
-    
+
   }
 
   private visualiseRepoSizeInfo() {
     this.gitHubService.getAllRepos().subscribe(data => {
       data.forEach(element => {
-        if (!element.fork && !element.name.includes('-') ) {
+        if (!element.fork && !element.name.includes('-')) {
           this.dataArray.push([element.name, element.size]);
           this.repoList.push(element.name);
         }
@@ -47,6 +46,9 @@ export class GitStatsComponent {
   }
 
   private initRepoSizeGraph() {
+
+    const visualiseContributionInfoBindedMethod = this.visualiseContributionsInfo.bind(this);
+
     this.repoGraphOptions = {
       chart: {
         plotBackgroundColor: null,
@@ -74,13 +76,20 @@ export class GitStatsComponent {
       series: [{
         name: 'size',
         colorByPoint: true,
-        data: this.dataArray
+        data: this.dataArray,
+        point: {
+          events: {
+            click: function (evt) {
+              visualiseContributionInfoBindedMethod(this.name);
+            }
+          }
+        }
       }]
     };
     var repoInfochart = new Highcharts.Chart(this.repoGraphOptions);
   }
 
-  private visualiseContributionsInfo(repoName = "angular") {
+  public visualiseContributionsInfo(repoName = "angular") {
     this.resetDataArrays();
     this.gitHubService.getRepoStats(repoName).subscribe(data => {
       data[0].weeks.forEach(element => {
@@ -126,12 +135,12 @@ export class GitStatsComponent {
         },
         series: [{
           name: 'Additions',
-          data: this.additions
+          data: this.additions,
         },
         {
           name: 'Deletions',
           data: this.deletions
-        },{
+        }, {
           name: 'Commits',
           data: this.commits
         }]
