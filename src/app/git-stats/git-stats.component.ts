@@ -3,10 +3,9 @@ import * as Highcharts from 'highcharts';
 import { Person } from '../entities/person';
 import * as HighchartsMore from 'highcharts/highcharts-more.src.js';
 import { GitHubService } from '../services/github.service';
+import { element } from '../../../node_modules/protractor';
 
 HighchartsMore(Highcharts);
-
-
 
 @Component({
   selector: 'git-stats',
@@ -14,31 +13,36 @@ HighchartsMore(Highcharts);
   styleUrls: ['git-stats.scss'],
 })
 export class GitStatsComponent {
+
   repoGraphOptions: any;
   contributionGraphOptions: any;
+  languageGraphOptions: any;
   isDataLoaded: Boolean;
   gitHubService: any;
   person: Person;
-  dataArray = [];
+  repoNameAndSizeArray = [];
   additions = [];
   deletions = [];
   commits = [];
   dateTimes = [];
-  repoList = [];
+  repoListForRepoSizeGraph = [];
+  repoListForLanguageGraph = [];
+  languagesAndUsage = [];
+
   constructor(gitHubService: GitHubService) {
 
     this.gitHubService = gitHubService;
     this.visualiseRepoSizeInfo();
     this.visualiseContributionsInfo();
-
+    this.visualizeLanguagesChart();
   }
 
   private visualiseRepoSizeInfo() {
     this.gitHubService.getAllRepos().subscribe(data => {
       data.forEach(element => {
         if (!element.fork && !element.name.includes('-')) {
-          this.dataArray.push([element.name, element.size]);
-          this.repoList.push(element.name);
+          this.repoNameAndSizeArray.push([element.name, element.size]);
+          this.repoListForRepoSizeGraph.push(element.name);
         }
       });
       this.initRepoSizeGraph();
@@ -76,7 +80,7 @@ export class GitStatsComponent {
       series: [{
         name: 'size',
         colorByPoint: true,
-        data: this.dataArray,
+        data: this.repoNameAndSizeArray,
         point: {
           events: {
             click: function (evt) {
@@ -146,6 +150,86 @@ export class GitStatsComponent {
         }]
       }
     var contributionChart = new Highcharts.Chart(this.contributionGraphOptions);
+    this.isDataLoaded = true;
+  }
+
+  private visualizeLanguagesChart(): any {
+    this.gitHubService.getAllRepos().subscribe(data => {
+      data.forEach(element => {
+        if (!element.fork && !element.name.includes('-')) {
+          this.repoListForLanguageGraph.push(element.name);
+        }
+      });
+      this.initLanguageAndUsage();
+    });
+  }
+
+  private initLanguageAndUsage(): any {
+    var counter = 0;
+    this.repoListForLanguageGraph.forEach(element => {
+      this.gitHubService.getLanguageUsage(element).subscribe(data => {
+        counter++;
+        var keyNames = Object.keys(data);
+        keyNames.forEach(key => {
+          if (key in this.languagesAndUsage) {
+            this.languagesAndUsage[key] += data[key]
+          }
+          else {
+            this.languagesAndUsage[key] = data[key]
+          }
+        });
+        // TODO: Refactor this part to work with aync methods and foreach
+        if (counter == this.repoListForLanguageGraph.length)
+          this.initLanguageRepoGraph();
+      });
+    });
+
+  }
+
+  private initLanguageRepoGraph() {
+
+    // Extract the Language byte values and add a random color to the data
+    var dataArray = [];
+    for (var key in this.languagesAndUsage) {
+      dataArray.push({ y: this.languagesAndUsage[key], color: '#'+(Math.random()*0xFFFFFF<<0).toString(16)});
+    }
+    this.languageGraphOptions =
+      {
+        chart: {
+          type: 'column',
+          renderTo: 'container3',
+        },
+        title: {
+          text: 'Language Contributions'
+        },
+        xAxis: {
+          categories: Object.keys(this.languagesAndUsage),
+          crosshair: true
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: 'Bytes of Code'
+          }
+        },
+        plotOptions: {
+          column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+          }
+        },
+        colors: [
+          '#ffFF00',
+          '#00ff00',
+          '#0000ff'
+      ],
+        series: [{
+          name: 'Languages',
+          data: dataArray
+        }]
+      }
+    var languagesChart = new Highcharts.Chart(this.languageGraphOptions);
+
     this.isDataLoaded = true;
   }
 
