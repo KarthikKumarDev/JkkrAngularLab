@@ -218,13 +218,9 @@ export class GitStatsComponent {
             borderWidth: 0
           }
         },
-        colors: [
-          '#ffFF00',
-          '#00ff00',
-          '#0000ff'
-      ],
         series: [{
-          name: 'Languages',
+          showInLegend: false,
+          name: 'Bytes',
           data: dataArray
         }]
       }
