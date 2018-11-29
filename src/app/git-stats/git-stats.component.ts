@@ -96,6 +96,9 @@ export class GitStatsComponent {
   public visualiseContributionsInfo(repoName = "angular") {
     this.resetDataArrays();
     this.gitHubService.getRepoStats(repoName).subscribe(data => {
+      if(data === undefined){
+        this.visualiseContributionsInfo(repoName);
+      }
       data[0].weeks.forEach(element => {
         if (element.c) {
           this.additions.push(element.a);

@@ -13,6 +13,13 @@ import { GitStatsComponent } from './git-stats/git-stats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GitHubService } from './services/github.service';
 import { HttpModule } from '../../node_modules/@angular/http';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
+import { AppRoutes } from './app.routes';
 
 
 @NgModule({
@@ -38,26 +45,12 @@ import { HttpModule } from '../../node_modules/@angular/http';
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: GitStatsComponent,
-      },
-      {
-        path: 'skills',
-        component: SkillFormComponent,
-      },
-      {
-        path: 'graph',
-        component: GraphComponent,
-      },
-      {
-        path: 'git-stats',
-        component: GitStatsComponent
-      }
-    ])
+    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AppRoutes
   ],
-  providers: [GitHubService],
+  providers: [GitHubService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 

@@ -42,7 +42,7 @@
     font-size: 20px;
 }
 .theme-toggle{
-    margin-top: 5px;
+    margin-top: 1px;
     position: fixed;
     margin-left: 90%;
 }
@@ -60,4 +60,11 @@
            text-decoration: none;
        } 
     }
+}
+
+.sign-in-buttons {
+    margin-top: 1px;
+    margin-left: 95%;
+    position: absolute;
+    color: white;
 }
