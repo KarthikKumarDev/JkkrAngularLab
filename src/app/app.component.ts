@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Person} from './entities/person';
+import { AuthService } from './services/auth.service';
+import { Router } from '../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,22 @@ import { Person} from './entities/person';
 })
 export class AppComponent {
   isDarkTheme = false;
+  isLoggedIn = false;
+
+  constructor(private authService: AuthService, private router: Router) {
+  }
+
+  public signInWithGoogle() {
+    this.authService.signInWithGoogle()
+      .then((res) => {
+        this.router.navigate(['git-stats'])
+        this.isLoggedIn = true;
+      })
+      .catch((err) => console.log(err));
+  }
+
+  public logout(){
+    this.authService.logout();
+    this.isLoggedIn = false;
+  }
 }
