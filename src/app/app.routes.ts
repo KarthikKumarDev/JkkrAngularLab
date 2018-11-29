@@ -6,24 +6,25 @@ import { SkillFormComponent } from './skillForm/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
 
 const appRoutes: Routes = [
-    {
-        path: '',
-        component: GitStatsComponent,
-      },
-      {
-        path: 'skills',
-        canActivate: [AuthGuard],
-        component: SkillFormComponent,
-      },
-      {
-        path: 'graph',
-        canActivate: [AuthGuard],
-        component: GraphComponent,
-      },
-      {
-        path: 'git-stats',
-        component: GitStatsComponent
-      }
+  {
+    path: 'skills',
+    canActivate: [AuthGuard],
+    component: SkillFormComponent,
+  },
+  {
+    path: 'graph',
+    canActivate: [AuthGuard],
+    component: GraphComponent,
+  },
+  {
+    path: 'git-stats',
+    component: GitStatsComponent
+  },
+  {
+    path: '',
+    redirectTo: '/git-stats',
+    pathMatch: 'full'
+  },
 ];
 
 export const AppRoutes = RouterModule.forRoot(appRoutes);
