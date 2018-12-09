@@ -4,6 +4,7 @@ import { Person } from '../entities/person';
 import * as HighchartsMore from 'highcharts/highcharts-more.src.js';
 import { GitHubService } from '../services/github.service';
 import { element } from '../../../node_modules/protractor';
+import { isEmpty } from '../../../node_modules/rxjs/operators';
 
 HighchartsMore(Highcharts);
 
@@ -96,8 +97,9 @@ export class GitStatsComponent {
   public visualiseContributionsInfo(repoName = "angular") {
     this.resetDataArrays();
     this.gitHubService.getRepoStats(repoName).subscribe(data => {
-      if(data === undefined){
+      if(Object.keys(data).length ===0){
         this.visualiseContributionsInfo(repoName);
+        return;
       }
       data[0].weeks.forEach(element => {
         if (element.c) {
