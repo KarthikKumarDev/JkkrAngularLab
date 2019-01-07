@@ -1,0 +1,45 @@
+<header class="page-header">
+    Text Analysis
+</header>
+<div class="parent">
+    <mat-card class="input-card">Provide the sentence here:
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Text" #Text>
+        </mat-form-field>
+        <button (click)="callTextAnalysis(Text.value)" mat-raised-button color="accent">
+            Submit
+        </button>
+    </mat-card>
+</div>
+<div class="answer">
+    <mat-card *ngIf="isScoreAvailable" class="input-card">
+        <mat-card-header>
+            Score: {{ textAnalysisScore}}
+        </mat-card-header>
+        <mat-card-content>
+            <br/>
+            <div class="result-parent">
+                <mat-card>
+                    <mat-card-content>
+                        <h4>Tokens:</h4> {{tokens}}
+                    </mat-card-content>
+                </mat-card>
+                <mat-card>
+                    <mat-card-content>
+                        <h4>Words:</h4> {{words}}
+                    </mat-card-content>
+                </mat-card>
+                <mat-card>
+                    <mat-card-content>
+                        <h4>Postive Words:</h4> {{positiveWords}}
+                    </mat-card-content>
+                </mat-card>
+                <mat-card>
+                    <mat-card-content>
+                        <h4>Negative Words:</h4> {{negativeWords}}
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
