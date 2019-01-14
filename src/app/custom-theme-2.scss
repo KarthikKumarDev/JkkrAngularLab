@@ -9,11 +9,13 @@
     color: white !important;
     background: black !important;
   }
+
   .sidenav {
       background-color: #212121 !important;
       background: none;
       color: white !important;
   }
+
   .sidenav-list{
     li{
        a{
@@ -22,11 +24,28 @@
     }
     li:hover{
         background-color: white;
+        border-radius: 5px;
         a{
            color:black !important;
        } 
     }
 }
+
+.sidenav-footer{
+    li{
+        a{
+            color:white !important;
+        } 
+     }
+    li:hover{
+        background-color: white;
+        border-radius: 5px;
+        a{
+           color:darkblue !important;
+       } 
+    }
+}
+
 .sidenav-container{
   background: #03A9F4; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left, #03A9F4 , #01579B); /* For Safari 5.1 to 6.0 */
@@ -34,6 +53,7 @@
   background: -moz-linear-gradient(right, #03A9F4, #01579B); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to right, #03A9F4 , #01579B); /* Standard syntax */
 }
+
 .page-header{  
     background-color:#212121 !important;
     background: none;

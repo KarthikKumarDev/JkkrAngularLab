@@ -2,13 +2,16 @@ $custom-theme-primary: mat-palette($mat-grey,900);
 $custom-theme-accent: mat-palette($mat-blue,800);
 $custom-theme-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
 .toolbar{
     background-color: #1565c0 !important;
     color: white !important;
 }
+
 .sidenav {
   background-color:#1565c0 !important;
 }
+
 .sidenav-list{
     li{
        a{
@@ -17,15 +20,33 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     }
     li:hover{
         background-color: black;
+        border-radius: 5px;
         a{
            color:White !important;
        } 
     }
 }
+
+.sidenav-footer{
+    li{
+        a{
+            color:white !important;
+        } 
+     }
+    li:hover{
+        background-color: black;
+        border-radius: 5px;
+        a{
+           color:White !important;
+       } 
+    }
+}
+
 .page-header{  
     background-color: #dcdde1;
     color: black;
 }
+
 .toolbar{
     color: black !important;
 }
