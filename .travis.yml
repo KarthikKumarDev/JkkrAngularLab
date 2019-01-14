@@ -11,12 +11,14 @@ branches:
 before_script:
   - npm install -g firebase-tools
   - npm install -g @angular/cli
+  - npm install codecov -g
 
 script:
   - ng build --prod
 
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN
+  - codecov
 
 notifications:
   email:
