@@ -12,7 +12,7 @@ import { GraphComponent } from './graphs/graph.component';
 import { GitStatsComponent } from './git-stats/git-stats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GitHubService } from './services/github.service';
-import { HttpModule } from '../../node_modules/@angular/http';
+import { HttpModule } from '@angular/http';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -20,6 +20,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { AppRoutes } from './app.routes';
+import { TextAnalysisComponent } from './text-analysis/text-analysis.component';
+import { TextAnalysisService } from './services/text-analysis.service';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { AppRoutes } from './app.routes';
     AppComponent,
     SkillFormComponent,
     GraphComponent,
-    GitStatsComponent
+    GitStatsComponent,
+    TextAnalysisComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,7 @@ import { AppRoutes } from './app.routes';
     AngularFireAuthModule,
     AppRoutes
   ],
-  providers: [GitHubService, AuthService, AuthGuard],
+  providers: [GitHubService, AuthService, AuthGuard, TextAnalysisService],
   bootstrap: [AppComponent]
 })
 

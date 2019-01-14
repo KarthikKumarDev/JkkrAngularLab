@@ -3,8 +3,8 @@ import * as Highcharts from 'highcharts';
 import { Person } from '../entities/person';
 import * as HighchartsMore from 'highcharts/highcharts-more.src.js';
 import { GitHubService } from '../services/github.service';
-import { element } from '../../../node_modules/protractor';
-import { isEmpty } from '../../../node_modules/rxjs/operators';
+import { element } from 'protractor';
+import { isEmpty } from 'rxjs/operators';
 
 HighchartsMore(Highcharts);
 
