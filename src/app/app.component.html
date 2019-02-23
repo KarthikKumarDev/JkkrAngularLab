@@ -14,7 +14,7 @@
       </div>
     </mat-toolbar>
     <mat-sidenav-container class="sidenav-container">
-      <mat-sidenav mode="side" opened="true" #sidenav class="sidenav">
+      <mat-sidenav mode="side" opened="true" #sidenav  class="sidenav" fixedInViewport="true" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
         <ul class="sidenav-list">
           <li>
             <a routerLink="/git-stats">
