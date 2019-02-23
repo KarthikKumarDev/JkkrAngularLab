@@ -41,8 +41,8 @@ export class GitStatsComponent {
   private visualiseRepoSizeInfo() {
     this.gitHubService.getAllRepos().subscribe(data => {
       data.forEach(element => {
-        if (!element.fork && !element.name.includes('-')) {
-          this.repoNameAndSizeArray.push([element.name, element.size]);
+        if (!element.fork) {
+          this.repoNameAndSizeArray.push([element.name.replace(/-/g,''), element.size]);
           this.repoListForRepoSizeGraph.push(element.name);
         }
       });
@@ -161,7 +161,7 @@ export class GitStatsComponent {
   private visualizeLanguagesChart(): any {
     this.gitHubService.getAllRepos().subscribe(data => {
       data.forEach(element => {
-        if (!element.fork && !element.name.includes('-')) {
+        if (!element.fork) {
           this.repoListForLanguageGraph.push(element.name);
         }
       });
