@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatInputModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule, MatDatepickerModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatInputModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule, MatDatepickerModule, MatTableModule, MatPaginatorModule } from '@angular/material';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { SkillFormComponent } from './skillForm/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
@@ -22,6 +22,8 @@ import { AuthGuard } from './services/auth-guard.service';
 import { AppRoutes } from './app.routes';
 import { TextAnalysisComponent } from './text-analysis/text-analysis.component';
 import { TextAnalysisService } from './services/text-analysis.service';
+import { StudyTrackerComponent } from './study-tracker/study-tracker.component';
+import { StudyTrackerService } from './services/study-tracker.service';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { TextAnalysisService } from './services/text-analysis.service';
     SkillFormComponent,
     GraphComponent,
     GitStatsComponent,
-    TextAnalysisComponent
+    TextAnalysisComponent,
+    StudyTrackerComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,8 @@ import { TextAnalysisService } from './services/text-analysis.service';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatDatepickerModule,
+    MatTableModule,
+    MatPaginatorModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
@@ -53,7 +58,7 @@ import { TextAnalysisService } from './services/text-analysis.service';
     AngularFireAuthModule,
     AppRoutes
   ],
-  providers: [GitHubService, AuthService, AuthGuard, TextAnalysisService],
+  providers: [GitHubService, AuthService, AuthGuard, TextAnalysisService, StudyTrackerService],
   bootstrap: [AppComponent]
 })
 
