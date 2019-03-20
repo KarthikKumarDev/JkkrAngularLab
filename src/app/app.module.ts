@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatInputModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule, MatDatepickerModule, MatTableModule, MatPaginatorModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatInputModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule, MatDatepickerModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { SkillFormComponent } from './skillForm/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
@@ -50,6 +50,7 @@ import { StudyTrackerService } from './services/study-tracker.service';
     MatDatepickerModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSortModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
