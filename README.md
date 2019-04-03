@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f0ffcef0c1244dfcb21175e4d6c6dad0)](https://app.codacy.com/app/karthikkumar1996/JkkrAngularLab?utm_source=github.com&utm_medium=referral&utm_content=karthikkumar1996/JkkrAngularLab&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/karthikkumar1996/JkkrAngularLab.svg?branch=master)](https://travis-ci.org/karthikkumar1996/JkkrAngularLab)
 # Project
 
