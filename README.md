@@ -1,19 +1,23 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f0ffcef0c1244dfcb21175e4d6c6dad0)](https://app.codacy.com/app/karthikkumar1996/JkkrAngularLab?utm_source=github.com&utm_medium=referral&utm_content=karthikkumar1996/JkkrAngularLab&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/karthikkumar1996/JkkrAngularLab.svg?branch=master)](https://travis-ci.org/karthikkumar1996/JkkrAngularLab)
+
 # Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
 Deployed at https://jkkr-lab.firebaseapp.com/
-# Prerequisite 
-1) NodeJs.
-    Refer: https://nodejs.org/en/download/
-2) Code editor(VS code/ Sublime editor).
 
-3) Angular CLI
-    Refer: https://cli.angular.io/
-4) NPM
-    Refer: https://docs.npmjs.com/ 
-5) Angular Material Design.
-   Refer:  https://material.angular.io/guide/getting-started
+# Prerequisite
+
+1. NodeJs.
+   Refer: https://nodejs.org/en/download/
+2. Code editor(VS code/ Sublime editor).
+
+3. Angular CLI
+   Refer: https://cli.angular.io/
+4. NPM
+   Refer: https://docs.npmjs.com/
+5. Angular Material Design.
+   Refer: https://material.angular.io/guide/getting-started
 
 ## Development server
 
