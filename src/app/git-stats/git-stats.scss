@@ -1,31 +1,37 @@
-.parent-card{
-    margin-top: 10%;
-    margin-left: 2%;
-    margin-right: 2%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around
+.parent-card {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-.container{
-    width: 500px;
-    border-radius: 5px;
+.container {
+  width: 450px;
+  border-radius: 5px;
+  margin: 10px;
 }
 
-.page-header{
-    padding: 1em;
-    clear: left;
-    text-align: center;
-    padding-right: 3%;
-    font-size: 20px;
-    box-shadow: 0px 1px 5px black;
+@media only screen and (max-width: 479px) {
+  .container {
+    width: 90%;
+  }
 }
 
-.my-spinner{
-    position:absolute;
+.page-header {
+  padding: 1em;
+  clear: left;
+  text-align: center;
+  padding-right: 3%;
+  font-size: 20px;
+  box-shadow: 0px 1px 5px black;
 }
 
-.repo-dropdown{
-    width: 0;
-    font-size: 15px;
+.my-spinner {
+  position: absolute;
+}
+
+.repo-dropdown {
+  width: 0;
+  font-size: 15px;
 }

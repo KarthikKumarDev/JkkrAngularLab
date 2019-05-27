@@ -32,6 +32,7 @@
 .sidenav {
   width: 10%;
   box-shadow: 1px 0px 20px black;
+  min-width: 175px;
 }
 .sidenav-button {
   margin-left: 150px;
@@ -39,11 +40,31 @@
   padding: 0;
   font-size: 20px;
 }
+
+@media (max-width: 600px) {
+  .sidenav-button {
+    margin-left: 20px; // Vertical, Horizontal
+  }
+}
+
+@media (max-width: 600px) {
+  .toolbar-header {
+    margin-left: 30%; // Vertical, Horizontal
+  }
+}
+
 .theme-toggle {
   margin-top: 1px;
   position: fixed;
   margin-left: 90%;
 }
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    margin-left: 65%; // Vertical, Horizontal
+  }
+}
+
 .sidenav-list {
   padding: 0px;
   margin-top: 55px;
@@ -54,7 +75,6 @@
     padding: 10%;
     width: 80%;
     a {
-      margin-left: 15%;
       text-decoration: none;
     }
   }
@@ -72,6 +92,7 @@
     width: 90%;
     a {
       text-decoration: none;
+      font-size: 14px;
     }
   }
 }
@@ -81,4 +102,10 @@
   margin-left: 95%;
   position: absolute;
   color: white;
+}
+
+@media (max-width: 600px) {
+  .sign-in-buttons {
+    margin-left: 80%; // Vertical, Horizontal
+  }
 }
