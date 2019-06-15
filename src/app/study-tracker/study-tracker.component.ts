@@ -6,7 +6,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
   // tslint:disable-next-line: component-selector
   selector: 'study-tracker',
   templateUrl: 'study-tracker.component.html',
-  styleUrls: ['study-tracker.scss']
+  styleUrls: ['study-tracker.scss'],
 })
 export class StudyTrackerComponent implements OnInit {
   HeaderKeys: any[];
@@ -18,15 +18,15 @@ export class StudyTrackerComponent implements OnInit {
 
   private sort: MatSort;
   @ViewChild(MatSort)
-    set content(content: MatSort) {
-        this.sort = content;
+  set content(content: MatSort) {
+    this.sort = content;
 
-        if (this.sort) {
-            this.dataSource.sort = this.sort;
-        }
+    if (this.sort) {
+      this.dataSource.sort = this.sort;
     }
+  }
 
-  constructor(private studyTrackerServices: StudyTrackerService) { }
+  constructor(private studyTrackerServices: StudyTrackerService) {}
 
   ngOnInit(): void {
     this.studyTrackerServices.getAllTrackerForm().subscribe(data => {
@@ -43,7 +43,7 @@ export class StudyTrackerComponent implements OnInit {
           this.HeaderKeys[3],
           this.HeaderKeys[2],
           this.HeaderKeys[4],
-          this.HeaderKeys[5]
+          this.HeaderKeys[5],
         ];
 
         this.dataSource = new MatTableDataSource(data.Items);

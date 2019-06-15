@@ -1,11 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatInputModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule, MatDatepickerModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatSidenavModule,
+  MatButtonModule,
+  MatSlideToggleModule,
+  MatCardModule,
+  MatInputModule,
+  MatSelectModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule,
+  MatDatepickerModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+} from '@angular/material';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { SkillFormComponent } from './skillForm/skill-form.component';
 import { GraphComponent } from './graphs/graph.component';
@@ -25,7 +39,6 @@ import { TextAnalysisService } from './services/text-analysis.service';
 import { StudyTrackerComponent } from './study-tracker/study-tracker.component';
 import { StudyTrackerService } from './services/study-tracker.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +46,7 @@ import { StudyTrackerService } from './services/study-tracker.service';
     GraphComponent,
     GitStatsComponent,
     TextAnalysisComponent,
-    StudyTrackerComponent
+    StudyTrackerComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,15 +67,23 @@ import { StudyTrackerService } from './services/study-tracker.service';
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    AngularFireModule.initializeApp(
+      environment.firebase,
+      'angular-auth-firebase'
+    ),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AppRoutes
+    AppRoutes,
   ],
-  providers: [GitHubService, AuthService, AuthGuard, TextAnalysisService, StudyTrackerService],
-  bootstrap: [AppComponent]
+  providers: [
+    GitHubService,
+    AuthService,
+    AuthGuard,
+    TextAnalysisService,
+    StudyTrackerService,
+  ],
+  bootstrap: [AppComponent],
 })
-
 export class AppModule {
   constructor(overlayContainer: OverlayContainer) {
     // overlayContainer.themeClass='custom-theme-1'

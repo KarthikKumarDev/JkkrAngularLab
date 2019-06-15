@@ -14,7 +14,6 @@ HighchartsMore(Highcharts);
   styleUrls: ['git-stats.scss'],
 })
 export class GitStatsComponent {
-
   repoGraphOptions: any;
   contributionGraphOptions: any;
   languageGraphOptions: any;
@@ -31,7 +30,6 @@ export class GitStatsComponent {
   languagesAndUsage = [];
 
   constructor(gitHubService: GitHubService) {
-
     this.gitHubService = gitHubService;
     this.visualiseRepoSizeInfo();
     this.visualiseContributionsInfo();
@@ -42,7 +40,10 @@ export class GitStatsComponent {
     this.gitHubService.getAllRepos().subscribe(data => {
       data.forEach(element => {
         if (!element.fork) {
-          this.repoNameAndSizeArray.push([element.name.replace(/-/g,''), element.size]);
+          this.repoNameAndSizeArray.push([
+            element.name.replace(/-/g, ''),
+            element.size,
+          ]);
           this.repoListForRepoSizeGraph.push(element.name);
         }
       });
@@ -51,8 +52,9 @@ export class GitStatsComponent {
   }
 
   private initRepoSizeGraph() {
-
-    const visualiseContributionInfoBindedMethod = this.visualiseContributionsInfo.bind(this);
+    const visualiseContributionInfoBindedMethod = this.visualiseContributionsInfo.bind(
+      this
+    );
 
     this.repoGraphOptions = {
       chart: {
@@ -60,44 +62,46 @@ export class GitStatsComponent {
         plotBorderWidth: null,
         plotShadow: false,
         renderTo: 'container1',
-        type: 'pie'
+        type: 'pie',
       },
       title: {
-        text: 'Repo Size'
+        text: 'Repo Size',
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
       },
       plotOptions: {
         pie: {
           allowPointSelect: true,
           cursor: 'pointer',
           dataLabels: {
-            enabled: false
+            enabled: false,
           },
-          showInLegend: true
-        }
+          showInLegend: true,
+        },
       },
-      series: [{
-        name: 'size',
-        colorByPoint: true,
-        data: this.repoNameAndSizeArray,
-        point: {
-          events: {
-            click: function (evt) {
-              visualiseContributionInfoBindedMethod(this.name);
-            }
-          }
-        }
-      }]
+      series: [
+        {
+          name: 'size',
+          colorByPoint: true,
+          data: this.repoNameAndSizeArray,
+          point: {
+            events: {
+              click: function(evt) {
+                visualiseContributionInfoBindedMethod(this.name);
+              },
+            },
+          },
+        },
+      ],
     };
     var repoInfochart = new Highcharts.Chart(this.repoGraphOptions);
   }
 
-  public visualiseContributionsInfo(repoName = "angular") {
+  public visualiseContributionsInfo(repoName = 'angular') {
     this.resetDataArrays();
     this.gitHubService.getRepoStats(repoName).subscribe(data => {
-      if(Object.keys(data).length ===0){
+      if (Object.keys(data).length === 0) {
         this.visualiseContributionsInfo(repoName);
         return;
       }
@@ -106,7 +110,9 @@ export class GitStatsComponent {
           this.additions.push(element.a);
           this.deletions.push(element.d);
           this.commits.push(element.c);
-          this.dateTimes.push(this.gitHubService.convertUnixTimeStampToUTC(element.w));
+          this.dateTimes.push(
+            this.gitHubService.convertUnixTimeStampToUTC(element.w)
+          );
         }
       });
       this.initContributionGraph(repoName);
@@ -114,46 +120,48 @@ export class GitStatsComponent {
   }
 
   private initContributionGraph(repoName: string) {
-    this.contributionGraphOptions =
-      {
-        chart: {
-          type: 'area',
-          renderTo: 'container2',
-        },
+    this.contributionGraphOptions = {
+      chart: {
+        type: 'area',
+        renderTo: 'container2',
+      },
+      title: {
+        text: 'Project ' + repoName + ' Contributions',
+      },
+      subtitle: {
+        text: 'Additions, Deletions, Commits',
+      },
+      xAxis: {
+        categories: this.dateTimes,
+        crosshair: true,
+      },
+      yAxis: {
+        min: 0,
         title: {
-          text: 'Project ' + repoName + ' Contributions'
+          text: 'count',
         },
-        subtitle: {
-          text: 'Additions, Deletions, Commits'
+      },
+      plotOptions: {
+        column: {
+          pointPadding: 0.2,
+          borderWidth: 0,
         },
-        xAxis: {
-          categories: this.dateTimes,
-          crosshair: true
-        },
-        yAxis: {
-          min: 0,
-          title: {
-            text: 'count'
-          }
-        },
-        plotOptions: {
-          column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-          }
-        },
-        series: [{
+      },
+      series: [
+        {
           name: 'Additions',
           data: this.additions,
         },
         {
           name: 'Deletions',
-          data: this.deletions
-        }, {
+          data: this.deletions,
+        },
+        {
           name: 'Commits',
-          data: this.commits
-        }]
-      }
+          data: this.commits,
+        },
+      ],
+    };
     var contributionChart = new Highcharts.Chart(this.contributionGraphOptions);
     this.isDataLoaded = true;
   }
@@ -177,10 +185,9 @@ export class GitStatsComponent {
         var keyNames = Object.keys(data);
         keyNames.forEach(key => {
           if (key in this.languagesAndUsage) {
-            this.languagesAndUsage[key] += data[key]
-          }
-          else {
-            this.languagesAndUsage[key] = data[key]
+            this.languagesAndUsage[key] += data[key];
+          } else {
+            this.languagesAndUsage[key] = data[key];
           }
         });
         // TODO: Refactor this part to work with aync methods and foreach
@@ -188,54 +195,56 @@ export class GitStatsComponent {
           this.initLanguageRepoGraph();
       });
     });
-
   }
 
   private initLanguageRepoGraph() {
-
     // Extract the Language byte values and add a random color to the data
     var dataArray = [];
     for (var key in this.languagesAndUsage) {
-      dataArray.push({ y: this.languagesAndUsage[key], color: '#'+(Math.random()*0xFFFFFF<<0).toString(16)});
+      dataArray.push({
+        y: this.languagesAndUsage[key],
+        color: '#' + ((Math.random() * 0xffffff) << 0).toString(16),
+      });
     }
-    this.languageGraphOptions =
-      {
-        chart: {
-          type: 'column',
-          renderTo: 'container3',
-        },
+    this.languageGraphOptions = {
+      chart: {
+        type: 'column',
+        renderTo: 'container3',
+      },
+      title: {
+        text: 'Language Contributions',
+      },
+      xAxis: {
+        categories: Object.keys(this.languagesAndUsage),
+        crosshair: true,
+      },
+      yAxis: {
+        min: 0,
         title: {
-          text: 'Language Contributions'
+          text: 'Bytes of Code',
         },
-        xAxis: {
-          categories: Object.keys(this.languagesAndUsage),
-          crosshair: true
+      },
+      plotOptions: {
+        column: {
+          pointPadding: 0.2,
+          borderWidth: 0,
         },
-        yAxis: {
-          min: 0,
-          title: {
-            text: 'Bytes of Code'
-          }
-        },
-        plotOptions: {
-          column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-          }
-        },
-        series: [{
+      },
+      series: [
+        {
           showInLegend: false,
           name: 'Bytes',
-          data: dataArray
-        }]
-      }
+          data: dataArray,
+        },
+      ],
+    };
     var languagesChart = new Highcharts.Chart(this.languageGraphOptions);
 
     this.isDataLoaded = true;
   }
 
   onRepoSelectionChanged(evt: any) {
-    this.visualiseContributionsInfo(evt.value)
+    this.visualiseContributionsInfo(evt.value);
   }
 
   private resetDataArrays() {

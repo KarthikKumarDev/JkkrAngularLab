@@ -20,20 +20,20 @@ const appRoutes: Routes = [
   },
   {
     path: 'git-stats',
-    component: GitStatsComponent
+    component: GitStatsComponent,
   },
   {
     path: 'text-analysis',
-    component: TextAnalysisComponent
+    component: TextAnalysisComponent,
   },
   {
     path: 'study-tracker',
-    component: StudyTrackerComponent
+    component: StudyTrackerComponent,
   },
   {
     path: '',
     redirectTo: '/git-stats',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 ];
 
