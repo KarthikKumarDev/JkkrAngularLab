@@ -7,19 +7,21 @@ import { TextAnalysisService } from '../services/text-analysis.service';
   styleUrls: ['text-analysis.scss'],
 })
 export class TextAnalysisComponent {
-  textAnalysisService: any;
+  textAnalysisService: TextAnalysisService;
   textAnalysisScore: string;
   isScoreAvailable: boolean;
-  tokens: any;
-  words: any;
-  positiveWords: any;
-  negativeWords: any;
+  tokens: string;
+  words: string;
+  positiveWords: string;
+  negativeWords: string;
+  isLoading: boolean;
 
   constructor(textAnalysisService: TextAnalysisService) {
     this.textAnalysisService = textAnalysisService;
   }
 
   public callTextAnalysis(text: any) {
+    this.isLoading = true;
     this.textAnalysisService.callTextAnalysisAPI(text).subscribe(data => {
       this.isScoreAvailable = true;
       this.textAnalysisScore = data.score;
@@ -27,6 +29,7 @@ export class TextAnalysisComponent {
       this.words = data.words;
       this.positiveWords = data.positive;
       this.negativeWords = data.negative;
+      this.isLoading = false;
     });
   }
 }
