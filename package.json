@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< Updated upstream
     "@angular/animations": "^7.0.0",
     "@angular/cdk": "^6.3.3",
     "@angular/common": "^7.0.0",
@@ -27,6 +28,22 @@
     "angularfire2": "^5.2.1",
     "core-js": "^2.5.7",
     "firebase": "^5.11.1",
+=======
+    "@angular/animations": "7.0.0",
+    "@angular/cdk": "6.3.3",
+    "@angular/common": "7.0.0",
+    "@angular/compiler": "7.0.0",
+    "@angular/core": "7.0.0",
+    "@angular/forms": "7.0.0",
+    "@angular/http": "7.0.0",
+    "@angular/material": "6.3.3",
+    "@angular/platform-browser": "7.0.0",
+    "@angular/platform-browser-dynamic": "7.0.0",
+    "@angular/router": "7.0.0",
+    "angularfire2": "^5.1.0",
+    "core-js": "2.5.7",
+    "firebase": "^7.6.2",
+>>>>>>> Stashed changes
     "hammerjs": "^2.0.8",
     "highcharts": "^6.1.1",
     "rxjs": "^6.3.3",
